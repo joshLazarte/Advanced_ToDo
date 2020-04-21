@@ -1,0 +1,15 @@
+ToDo
+	Parent mongoID	
+	Description string
+	Material array of objects {name, isPurchased}
+	Progress string or number
+	updateParentProgress function
+	isComplete bool
+
+actions
+	create new todo
+	edit todo
+	complete todo
+	moveTodo (changes parent, updates new parent progress and oldParent progress)
+
+
