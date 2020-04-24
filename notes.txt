@@ -13,3 +13,9 @@ actions
 	moveTodo (changes parent, updates new parent progress and oldParent progress)
 
 
+
+setup db in mlab
+connect to db
+build backend to add todo
+connect front end to back end and display todo
+
