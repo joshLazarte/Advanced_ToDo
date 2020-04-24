@@ -9,9 +9,10 @@ import {
 }
 from '../types';
 
+
 const TodoState = props => {
   const initialState = {
-    todos: null
+    todos: []
   };
   
   const [state, dispatch] = useReducer(todoReducer, initialState);
@@ -19,7 +20,7 @@ const TodoState = props => {
   
   const getTodos = async() => {
     try {
-      const res = await axios.get('/api/todo');
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/todo`);
 
       dispatch({ type: GET_TODOS, payload: res.data });
     }
@@ -32,12 +33,12 @@ const TodoState = props => {
   const addTodo = async todo => {
     const config = {
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json' 
       }
     };
 
     try {
-      const res = await axios.post('/api/todo', todo, config);
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/todo`, todo, config);
       dispatch({ type: ADD_TODO, payload: res.data });
     }
     catch (err) {

@@ -16,8 +16,8 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-        const {todo} = req.body;
-        const newTodo = new Todo(todo);
+        const {name} = req.body;
+        const newTodo = new Todo({name});
         await newTodo.save();
         res.status(200).json(newTodo, null, 2);
     } catch(err){

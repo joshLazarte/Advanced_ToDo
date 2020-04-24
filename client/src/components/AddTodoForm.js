@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import TodoContext from '../../context/todo/todoContext';
+import TodoContext from '../context/todo/todoContext';
 
 
 const AddTodoForm = () => {
@@ -18,14 +18,19 @@ const AddTodoForm = () => {
     
     const onSubmit = e => {
         e.preventDefault();
-        addTodo(todo)
-    }
+        addTodo(todo);
+        setTodo({name: ''});
+    };
+    
+    const {name} = todo;
     
     
     return (
-        <form onSubmit={onSubmit}>
-            <input type="text" name="name" placeholder="Todo" onChange={onChange}/>     
-            <input type="submit" value="Add Todo"/>
+        <form className="py-3" onSubmit={onSubmit}>
+        <div className="form-group">
+            <input className="form-control" type="text" name="name" value={name} placeholder="Todo" onChange={onChange}/>     
+        </div>    
+        <button type="submit" className="btn btn-primary">Add ToDo</button>
         </form>    
     );
 };
